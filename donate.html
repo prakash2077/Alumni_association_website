@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="donate.html">Donate</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="career.html">Career Opportunities</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- <style>
+      nav {
+        background-color: #3498db;
+        padding: 10px 0;
+        text-align: center;
+      }
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav ul li {
+        display: inline;
+        margin: 0 15px;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+    </style> -->
+
+    <!-- Donation Details Section -->
+    <section id="donation-info">
+      <div class="container">
+        <h1>Support Our Cause</h1>
+        <p>
+          Your donations help support alumni initiatives, scholarships, and
+          other community services. Every contribution makes a difference!
+        </p>
+
+        <h2>Choose an Amount to Donate</h2>
+        <form id="donation-form">
+          <label for="amount">Amount:</label>
+          <select id="amount" name="amount">
+            <option value="10">10 USD</option>
+            <option value="20">20 USD</option>
+            <option value="50">50 USD</option>
+            <option value="100">100 USD</option>
+            <option value="custom">Custom Amount</option>
+          </select>
+
+          <div class="custom-amount-box" style="display: none">
+            <input
+              type="number"
+              id="custom-amount"
+              name="custom-amount"
+              placeholder="Enter custom amount"
+            />
+          </div>
+
+          <button type="button" class="btn primary-btn" id="donate-button">
+            Donate Now
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <script>
+      // Show custom amount input when 'custom' is selected
+      document.getElementById("amount").addEventListener("change", function () {
+        const customAmountBox = document.querySelector(".custom-amount-box");
+        if (this.value === "custom") {
+          customAmountBox.style.display = "block";
+        } else {
+          customAmountBox.style.display = "none";
+        }
+      });
+
+      // Stripe Setup
+      var stripe = Stripe("your-publishable-key-here"); // Replace with your Stripe Publishable Key
+
+      document
+        .getElementById("donate-button")
+        .addEventListener("click", function () {
+          // Get the selected amount
+          var selectedAmount = document.getElementById("amount").value;
+          if (selectedAmount === "custom") {
+            selectedAmount = document.getElementById("custom-amount").value;
+          }
+
+          // Create a payment intent via your backend
+          fetch("/create-payment-intent", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              amount: selectedAmount,
+            }),
+          })
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (paymentIntent) {
+              // Confirm the payment with Stripe
+              return stripe.confirmCardPayment(paymentIntent.client_secret, {
+                payment_method: {
+                  card: cardElement, // Card Element that you can set up
+                },
+              });
+            })
+            .then(function (result) {
+              if (result.error) {
+                console.log(result.error.message);
+              } else if (result.paymentIntent.status === "succeeded") {
+                alert("Donation successful!");
+              }
+            });
+        });
+    </script>
+  </body>
+</html>

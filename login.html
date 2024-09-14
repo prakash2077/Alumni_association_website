@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- <style>
+      /* Navigation Bar Styling */
+      nav {
+        background-color: #3498db;
+        padding: 10px 0;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav ul li {
+        display: inline;
+        margin: 0 15px;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+      .top-bar-btn {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 20px;
+        background-color: #2980b9;
+        border-radius: 5px;
+      }
+      .top-bar-btn:hover {
+        background-color: #1f6f9f;
+      }
+
+      /* Body Styling */
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding-top: 70px; /* To ensure the content doesn't overlap with the fixed nav bar */
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-box {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        color: #3498db;
+        text-align: center;
+      }
+
+      .form-box input {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      .form-box button {
+        padding: 10px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .form-box button:hover {
+        background-color: #2980b9;
+      }
+
+      .form-box a {
+        margin-top: 10px;
+        color: #3498db;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      .form-box a:hover {
+        text-decoration: underline;
+      }
+    </style> -->
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="career.html">Career Opportunities</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li>
+          <a href="login.html" class="btn top-bar-btn active"
+            ><i class="fa-solid fa-user"></i> Login</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Content -->
+    <div class="container">
+      <!-- Login Form (Initially Visible) -->
+      <div id="login-form" class="form-box">
+        <h1>Login</h1>
+        <form>
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Password" required />
+          <button class="btn" type="submit">Login</button>
+          <a href="#" id="show-register" style="text-decoration: underline"
+            >Don't have an account? Register now.</a
+          >
+        </form>
+      </div>
+
+      <!-- Register Form (Initially Hidden) -->
+      <div id="register-form" class="form-box" style="display: none">
+        <h1>Register</h1>
+        <form>
+          <input type="text" placeholder="Name" required />
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Password" required />
+          <button class="btn" type="submit">Register</button>
+          <a href="#" id="show-login" style="text-decoration: underline"
+            >Already have an account? Login here.</a
+          >
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript to toggle between Login and Register forms
+      document
+        .getElementById("show-register")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          document.getElementById("login-form").style.display = "none";
+          document.getElementById("register-form").style.display = "block";
+        });
+
+      document
+        .getElementById("show-login")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          document.getElementById("register-form").style.display = "none";
+          document.getElementById("login-form").style.display = "block";
+        });
+    </script>
+  </body>
+</html>

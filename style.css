@@ -1,0 +1,261 @@
+/* Variables */
+:root{
+    --main-color: #000000;
+    --complement-color: #ddd;
+    --login-color: #ff3030;
+    --dim-text-color: #7f8c8d;
+}
+
+/* Global Styling */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+h1, h2, h3, p {
+    margin: 10px 0;
+    /* color: #000000; */
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+section#home {
+    
+    /* background-color: white; */
+    height: 100vh;
+    background: url('img/home.jpg') no-repeat center center/cover;
+    /* background: url('https://www.blazingcoders.com/appdata/blogs/65/LandingPage.png') no-repeat center center/cover; */
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    /* filter: brightness(0.7); */
+    /* border-radius: 10px; */
+    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); */
+}
+.container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#home h1{
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 10px 10px 20px #000;
+    font-size: 3rem;
+    /* background-color: rgba(0, 0, 0, 0.1); */
+    border-radius: 1rem;
+    /* padding: 1rem; */
+}
+#home p{
+    color: #fff;
+    text-shadow: 10px 10px 20px #000;
+    font-size: 1.4rem;
+}
+h2, h3 {
+    text-align: center;
+    /* color: #1abc9c; */
+    color: var(--main-color);
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* ul li {
+    margin: 10px 0;
+} */
+
+a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--main-color);
+    color: var(--complement-color);
+    margin: 1rem;
+}
+a.btn:hover{
+    color:var(--main-color);
+    background-color: var(--complement-color);
+    scale: 1.1;
+}
+
+.primary-btn {
+    /* background-color: #1abc9c; */
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.primary-btn:hover {
+    /* background-color: #16a085; */
+    background-color: var(--main-color);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.secondary-btn {
+    /* background-color: #2980b9; */
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-btn:hover {
+    /* background-color: #2471a3; */
+    background-color: var(--main-color);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+input, textarea {
+    padding: 15px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+textarea {
+    min-height: 100px;
+}
+
+#search-bar {
+    width: 100%;
+    max-width: 500px;
+    margin: 15px auto;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Alumni Profiles */
+.alumni-profile {
+    background-color: #ecf0f1;
+    padding: 20px;
+    margin: 12px 0;
+    border-radius: 8px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.alumni-profile:hover {
+    transform: translateY(-5px);
+}
+
+/* Social Media Links */
+#social-media a {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 22px;
+    transition: color 0.3s ease;
+}
+
+#social-media a:hover {
+    color: var(--main-color);
+}
+
+/* Box Shadow & Styling for Boxes */
+.box {
+    /* background-color: #f7f8fa; */
+    padding: 20px;
+    border-radius: 10px;
+    /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05); */
+}
+
+p, ul li {
+    font-size: 16px;
+    color: var(--dim-text-color);
+}
+
+/* Nav bar */
+nav {
+    background-color: var(--main-color);
+    padding: 10px 0;
+    text-align: center;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav ul li {
+    /* display: inline; */ 
+    margin: auto 1rem;
+}
+nav ul li a {
+    color: white;
+    /* text-decoration: none; */
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 3px;
+}
+nav ul li a:hover,
+nav .active {
+    color: var(--main-color);
+    background: var(--complement-color);
+    transition: ease 0.3s;
+}
+.top-bar-btn {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: var(--login-color);
+    border-radius: 5px;
+} */
+.top-bar-btn:hover {
+    background-color: var(--login-color) !important;
+}
+
+
+.event{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.event>.content{
+    margin: 1rem;
+}
+.event>img{
+    width: 50vw;
+    border-radius: 3px;
+}
+#updates{
+    background-color: #ddd;
+}
+#quick-links>ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
