@@ -1,6 +1,6 @@
 /* Variables */
 :root{
-    --main-color: #000000;
+    --main-color: #000;
     --complement-color: #ddd;
     --login-color: #ff3030;
     --dim-text-color: #7f8c8d;
@@ -30,6 +30,7 @@ section#home {
     /* background-color: white; */
     height: 100vh;
     background: url('img/home.jpg') no-repeat center center/cover;
+    background: url('https://www.aluminati.net/wp-content/uploads/2022/01/8-Best-Practices-For-Corporate-Alumni-Engagement-.jpg') no-repeat center center/cover;
     /* background: url('https://www.blazingcoders.com/appdata/blogs/65/LandingPage.png') no-repeat center center/cover; */
     /* background-color: rgba(0, 0, 0, 0.2); */
     /* filter: brightness(0.7); */
@@ -41,7 +42,7 @@ section#home {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 #home h1{
     color: #fff;
